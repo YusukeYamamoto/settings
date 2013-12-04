@@ -1,0 +1,27 @@
+# gcc
+export CC=gcc-4.6
+export CXX=g++-4.6
+
+# Gaia and Gecko cust
+export GAIA_PATH="$PWD/Gaia_cust"
+export GECKO_PATH="$PWD/Gecko_cust"
+
+
+# NO FTU
+export NOFTU=1
+
+# eveloper mode
+export DEVICE_DEBUG=1
+# Official Build
+export MOZILLA_OFFICIAL=1
+export PRODUCTION=1
+export GAIA_APP_TARGET=production
+
+# Gecko Localization
+#export L10NBASEDIR="$PWD/gecko-l10n"
+#export MOZ_CHROME_MULTILOCALE="de es-ES fr ja"
+
+# Gaia Localization
+#export LOCALE_BASEDIR="$PWD/gaia-l10n/"
+#export LOCALES_FILE="$PWD/gaia-l10n/languages_ja.json"
+#export GAIA_DEFAULT_LOCALE=ja
