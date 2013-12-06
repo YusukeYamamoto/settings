@@ -1,0 +1,20 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("ここからコマンド順番にコマンド送信"
+ (filename . "~/fxos/B2G_1203_peak/B2G/gecko/dom/system/gonk/net_worker.js")
+ (front-context-string . "function nextNet")
+ (rear-context-string . "tdCommand();\n}\n\n")
+ (position . 11777))
+("これがworkerを一元管理している"
+ (filename . "~/fxos/B2G_1203_peak/B2G/gecko/dom/system/gonk/SystemWorkerManager.cpp")
+ (front-context-string . "/* -*- Mode: c++")
+ (rear-context-string)
+ (position . 2))
+("NFC_gaia"
+ (filename . "~/fxos/test_dir/gaia/apps/system/js/nfc_manager.js")
+ (front-context-string . "\n  fireTagDiscov")
+ (rear-context-string . "Bug 933136\n  },\n")
+ (position . 10239))
+)

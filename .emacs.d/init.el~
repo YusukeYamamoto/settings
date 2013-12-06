@@ -1,0 +1,25 @@
+;; download Emacs-24.3-with-inline-patch.dmg from http://sourceforge.jp/projects/macemacsjp/releases/
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; [PKG管理] パッケージ取得先追加
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize) 
+;;http://www.emacswiki.org/emacs/FrameSize
+;; Mac book air 11 の画面全体に表示
+; (if window-system
+;      (set-frame-size (selected-frame) 120 42))
+
+
+
+;;複数ウィンドウを開かないようにする
+;(setq ns-pop-up-frames nil)
+
+;;optionキーをaltに
+(setq mac-option-modifier 'meta)
+
+;; http://www.emacswiki.org/emacs/ToolBar
+;; ツールバーを非表示に
+(tool-bar-mode -1)

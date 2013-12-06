@@ -1,0 +1,72 @@
+; 言語を日本語にする
+(set-language-environment 'Japanese)
+; UTF-8とする
+(prefer-coding-system 'utf-8)
+
+; 起動時の画面はいらない
+(setq inhibit-startup-message t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; [基本] 背景色・透過
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 背景色設定
+(custom-set-faces
+ '(default ((t (:background "#000022" :foreground "#EEEEEE"))))
+ '(cursor (
+           (((class color) (background dark )) (:background "#000000"))
+           (((class color) (background light)) (:background "#999999"))
+           (t ())
+           )))
+;; フレーム透過設定
+(add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+
+;;; フレームのフォントを設定
+(create-fontset-from-ascii-font "Menlo-14:weight=normal:slant=normal" nil "menlokakugo")
+(set-fontset-font "fontset-menlokakugo"
+                  'unicode
+                  (font-spec :family "Hiragino Kaku Gothic ProN" :size 32)
+                  nil
+                  'append)
+(add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))
+
+
+(global-linum-mode)
+
+
+;; バックアップファイルを作らない
+(setq backup-inhibited t)
+
+;; メニューバーを隠す
+(tool-bar-mode -1)
+
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; [PKG機能利用] markdown-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.txt" . markdown-mode) auto-mode-alist))
+(setq markdown-command "/usr/local/bin/markdown")
+;; Markdown2HTML した際 (C-c C-c v や C-c C-c e)、参照する CSS の設定
+(setq markdown-css-path "file://localhost/Users/morikawa/.emacs.d/local-lisp/markdown2html_mac.css")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; [編集支援] Markdown 書式の見出し検索
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun markdown-header-list ()
+  "Show Markdown Formed Header list through temporary buffer."
+  (interactive)
+  (occur "^\\(#+\\|.*\n===+\\|.*\n\---+\\)")
+  (other-window 1))
+(require 'markdown-mode)
+(define-key markdown-mode-map "\C-c\C-s" 'markdown-header-list)
+
+
+
+
+
+
